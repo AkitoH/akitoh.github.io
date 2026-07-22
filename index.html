@@ -320,9 +320,11 @@ body.nav-locked{ overflow:hidden; }
   background:var(--bg-2);
   padding:clamp(34px,4.5vw,52px) clamp(26px,3.5vw,42px);
   position:relative;
-  transition:background .45s;
+  transition:background .45s, transform .45s cubic-bezier(.22,.61,.36,1), box-shadow .45s;
 }
-.value-card:hover{ background:var(--bg-3); }
+.value-card:hover{ background:var(--bg-3); transform:translateY(-4px); box-shadow:0 20px 50px rgba(0,0,0,.35); z-index:1; }
+.value-card .num{ transition:color .45s; }
+.value-card:hover .num{ color:var(--gold-soft); }
 .value-card .num{
   font-family:var(--serif); font-size:.95rem; letter-spacing:.3em;
   color:var(--gold); display:block; margin-bottom:1.6em;
@@ -341,6 +343,37 @@ body.nav-locked{ overflow:hidden; }
   transition:transform .5s cubic-bezier(.22,.61,.36,1);
 }
 .value-card:hover::after{ transform:scaleX(1); }
+
+/* 登場のスタガー（時間差） */
+.value-grid .value-card:nth-child(2){ transition-delay:.07s; }
+.value-grid .value-card:nth-child(3){ transition-delay:.14s; }
+.value-grid .value-card:nth-child(4){ transition-delay:.21s; }
+.value-grid .value-card:nth-child(5){ transition-delay:.28s; }
+
+/* モバイル：横スワイプのカルーセル */
+@media (max-width:760px){
+  .value-grid{
+    grid-template-columns:none;
+    display:flex;
+    gap:14px;
+    background:none;
+    border:none;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:2px 0 16px;
+  }
+  .value-grid::-webkit-scrollbar{ height:4px; }
+  .value-grid::-webkit-scrollbar-thumb{ background:var(--line); border-radius:4px; }
+  .value-grid .value-card{
+    flex:0 0 80%;
+    scroll-snap-align:center;
+    background:var(--bg-3);
+    border:1px solid var(--line-soft);
+    border-radius:14px;
+  }
+  .value-card:hover{ transform:none; box-shadow:none; }
+}
 
 /* ============================================================
    2つの依頼導線
@@ -465,6 +498,35 @@ body.nav-locked{ overflow:hidden; }
 }
 .portrait-caption{
   margin-top:1.2em; font-size:.74rem; letter-spacing:.2em; color:var(--muted);
+}
+
+/* Career Path（全幅カード） */
+.career{ margin-top:clamp(48px,7vw,84px); }
+.career .timeline-title{ margin-bottom:1.6em; }
+.career-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:1px;
+  background:var(--line-soft);
+  border:1px solid var(--line-soft);
+}
+.career-card{
+  background:var(--bg-2);
+  padding:clamp(24px,3vw,32px) clamp(22px,2.5vw,28px);
+  display:flex; flex-direction:column;
+  transition:background .4s;
+}
+.career-card:hover{ background:var(--bg-3); }
+.career-card .step{
+  font-family:var(--serif); font-size:1.05rem; letter-spacing:.28em;
+  color:var(--gold); margin-bottom:1em; display:block;
+}
+.career-card h4{
+  font-size:.98rem; font-weight:500; letter-spacing:.06em;
+  color:var(--ink); margin-bottom:.7em; line-height:1.6;
+}
+.career-card p{
+  font-size:.84rem; color:var(--ink-soft); line-height:1.9;
 }
 
 .about-body p{
@@ -855,19 +917,47 @@ body.nav-locked{ overflow:hidden; }
         <p class="reveal">
           技術と経営、制度と現場、構想と定着。そのあいだに立って両方の言葉を話せることが、私の仕事の核だと考えています。
         </p>
+      </div>
+    </div>
 
-        <div class="reveal">
-          <h3 class="timeline-title">Career Path</h3>
-          <ol class="timeline">
-            <li><strong>キャリア初期</strong> — 証券営業。数字と信頼の両方で成果をつくる基礎を学ぶ</li>
-            <li><strong>技術者時代（約5年）</strong> — ネットワークエンジニア。インフラの設計・構築・運用の現場に立つ</li>
-            <li><strong>PMへの転換</strong> — 大規模プロジェクトのプロジェクトリーダー。技術と計画の両輪を担う</li>
-            <li><strong>人と組織へ</strong> — 人材サービスの営業を経て、組織開発・チェンジマネジメントに従事</li>
-            <li><strong>公共領域へ</strong> — 地方創生・公共事業のプロジェクトマネジメント。制度と現場の翻訳を担う</li>
-            <li><strong>デジタル領域の拡張</strong> — デジタルマーケティング、Microsoft 365 の導入・活用推進</li>
-            <li><strong>現在</strong> — 生成AIの導入・活用推進、研修・登壇・ファシリテーション。変革の実装を専門に</li>
-          </ol>
-        </div>
+    <div class="career reveal">
+      <h3 class="timeline-title">Career Path</h3>
+      <div class="career-grid">
+        <article class="career-card">
+          <span class="step" aria-hidden="true">01</span>
+          <h4>キャリア初期</h4>
+          <p>証券営業。数字と信頼の両方で成果をつくる基礎を学ぶ。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">02</span>
+          <h4>技術者時代（約5年）</h4>
+          <p>ネットワークエンジニア。インフラの設計・構築・運用の現場に立つ。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">03</span>
+          <h4>PMへの転換</h4>
+          <p>大規模プロジェクトのプロジェクトリーダー。技術と計画の両輪を担う。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">04</span>
+          <h4>人と組織へ</h4>
+          <p>人材サービスの営業を経て、組織開発・チェンジマネジメントに従事。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">05</span>
+          <h4>公共領域へ</h4>
+          <p>地方創生・公共事業のプロジェクトマネジメント。制度と現場の翻訳を担う。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">06</span>
+          <h4>デジタル領域の拡張</h4>
+          <p>デジタルマーケティング、Microsoft 365 の導入・活用推進。</p>
+        </article>
+        <article class="career-card">
+          <span class="step" aria-hidden="true">07</span>
+          <h4>現在</h4>
+          <p>生成AIの導入・活用推進、研修・登壇・ファシリテーション。変革の実装を専門に。</p>
+        </article>
       </div>
     </div>
   </div>
