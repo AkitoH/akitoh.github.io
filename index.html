@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0b1120">
+<link rel="canonical" href="https://akitoh.github.io/">
 <title>廣岡 明登 | 変革実装型プロジェクトリーダー — 複雑な課題を、現場が動く仕組みに変える</title>
 <meta name="description" content="廣岡明登（Akito Hirooka）— 複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。講演・研修・DX推進の伴走支援のご相談を受け付けています。">
 
@@ -21,6 +24,7 @@
 <meta property="og:image" content="https://akitoh.github.io/assets/images/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="廣岡 明登（Akito Hirooka）">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="廣岡 明登 | 変革実装型プロジェクトリーダー">
 <meta name="twitter:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する。">
@@ -171,8 +175,40 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
 }
 .site-nav a:hover, .site-nav a:focus-visible{ color:var(--gold-soft); }
 .site-nav a:hover::after, .site-nav a:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+
+/* ハンバーガー（モバイル） */
+.nav-toggle{
+  display:none;
+  width:44px; height:44px; border:none; background:none; cursor:pointer;
+  position:relative; z-index:130;
+  flex-direction:column; align-items:center; justify-content:center; gap:5px;
+}
+.nav-toggle-bar{
+  display:block; width:24px; height:1.5px; background:var(--gold-soft);
+  transition:transform .3s ease, opacity .3s ease;
+}
+.site-header.nav-open .nav-toggle-bar:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.site-header.nav-open .nav-toggle-bar:nth-child(2){ opacity:0; }
+.site-header.nav-open .nav-toggle-bar:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+body.nav-locked{ overflow:hidden; }
+.site-header.nav-open ~ .fab-top{ opacity:0; visibility:hidden; pointer-events:none; }
+
 @media (max-width:760px){
-  .site-nav{ display:none; }
+  .nav-toggle{ display:flex; }
+  .site-nav{
+    position:fixed; inset:0; z-index:110;
+    background:rgba(11,17,32,.98);
+    backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; visibility:hidden;
+    transition:opacity .4s ease, visibility .4s ease;
+  }
+  .site-header.nav-open .site-nav{ opacity:1; visibility:visible; }
+  .site-nav ul{ flex-direction:column; gap:1.7em; text-align:center; }
+  .site-nav a{ font-size:1.1rem; letter-spacing:.2em; }
+}
+@media (prefers-reduced-motion: reduce){
+  .nav-toggle-bar, .site-nav{ transition:none; }
 }
 
 /* ============================================================
@@ -552,6 +588,20 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
   .fab-top{ transition:opacity .01ms, visibility .01ms; transform:none; }
 }
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "廣岡 明登",
+  "alternateName": "Akito Hirooka",
+  "url": "https://akitoh.github.io/",
+  "image": "https://akitoh.github.io/assets/images/akito-hirooka-portrait.jpg",
+  "jobTitle": "変革実装型プロジェクトリーダー／DXリーダー",
+  "description": "複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。",
+  "knowsAbout": ["DX推進", "生成AI活用", "Microsoft 365", "Copilot", "チェンジマネジメント", "プロジェクトマネジメント", "組織定着", "ファシリテーション"]
+}
+</script>
 </head>
 <body>
 
@@ -564,7 +614,7 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
       <img class="brand-logo" src="assets/images/logo-ah.png" alt="" width="36" height="36" decoding="async">
       <span class="name">廣岡 明登</span>
     </a>
-    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+    <nav class="site-nav" id="siteNav" aria-label="サイト内ナビゲーション">
       <ul>
         <li><a href="#value">提供価値</a></li>
         <li><a href="#paths">ご依頼</a></li>
@@ -573,6 +623,11 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
         <li><a href="#contact">お問い合わせ</a></li>
       </ul>
     </nav>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="siteNav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+    </button>
   </div>
 </header>
 
@@ -882,6 +937,30 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
     fab.addEventListener("click", function(){
       var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       window.scrollTo({ top:0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
+
+  /* モバイル：ハンバーガーメニュー開閉 */
+  var navToggle = document.getElementById("navToggle");
+  var siteNav = document.getElementById("siteNav");
+  if (navToggle && siteNav){
+    var setNav = function(open){
+      header.classList.toggle("nav-open", open);
+      document.body.classList.toggle("nav-locked", open);
+      navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      navToggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+    };
+    navToggle.addEventListener("click", function(){
+      setNav(!header.classList.contains("nav-open"));
+    });
+    siteNav.querySelectorAll("a").forEach(function(a){
+      a.addEventListener("click", function(){ setNav(false); });
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") setNav(false);
+    });
+    window.addEventListener("resize", function(){
+      if (window.innerWidth > 760) setNav(false);
     });
   }
 
