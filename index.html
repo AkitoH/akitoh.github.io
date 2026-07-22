@@ -6,6 +6,11 @@
 <title>廣岡 明登 | 変革実装型プロジェクトリーダー — 複雑な課題を、現場が動く仕組みに変える</title>
 <meta name="description" content="廣岡明登（Akito Hirooka）— 複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。講演・研修・DX推進の伴走支援のご相談を受け付けています。">
 
+<!-- favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="128x128" href="assets/images/logo-ah.png">
+<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+
 <!-- OGP -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://akitoh.github.io/">
@@ -13,9 +18,13 @@
 <meta property="og:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場に定着するまで完遂する。講演・研修・伴走支援。">
 <meta property="og:site_name" content="Akito Hirooka">
 <meta property="og:locale" content="ja_JP">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://akitoh.github.io/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="廣岡 明登 | 変革実装型プロジェクトリーダー">
-<meta name="twitter:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みへ翻訳して、現場定着まで完遂する。">
+<meta name="twitter:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する。">
+<meta name="twitter:image" content="https://akitoh.github.io/assets/images/og-image.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,7 +146,11 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
   display:flex; justify-content:space-between; align-items:center;
 }
 .brand{
-  display:flex; align-items:baseline; gap:.9em;
+  display:flex; align-items:center; gap:.8em;
+}
+.brand-logo{
+  width:36px; height:36px; border-radius:50%; display:block;
+  box-shadow:0 0 0 1px var(--line);
 }
 .brand .mono{
   font-family:var(--serif); font-weight:500;
@@ -548,7 +561,7 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a class="brand" href="#top" aria-label="トップへ戻る">
-      <span class="mono" aria-hidden="true">A.H</span>
+      <img class="brand-logo" src="assets/images/logo-ah.png" alt="" width="36" height="36" decoding="async">
       <span class="name">廣岡 明登</span>
     </a>
     <nav class="site-nav" aria-label="サイト内ナビゲーション">
@@ -765,14 +778,13 @@ section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
 
     <div class="about-grid">
       <div class="reveal">
-        <!-- ▼▼▼ 顔写真プレースホルダー：実写真が用意でき次第、下の figure 内の SVG を img[src] に差し替え（例 alt="廣岡明登の写真"） ▼▼▼ -->
+        <!-- ポートレート（差し替え時は figure 内 img の src と width/height を更新） -->
         <figure>
           <div class="portrait">
-            <img src="assets/images/akito-hirooka-portrait.png" alt="廣岡明登のポートレート" width="1003" height="1568" loading="lazy" decoding="async">
+            <img src="assets/images/akito-hirooka-portrait.jpg" alt="廣岡明登のポートレート" width="800" height="1251" loading="lazy" decoding="async">
           </div>
           <figcaption class="portrait-caption">AKITO HIROOKA</figcaption>
         </figure>
-        <!-- ▲▲▲ 顔写真プレースホルダーここまで ▲▲▲ -->
       </div>
 
       <div class="about-body">
