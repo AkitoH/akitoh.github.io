@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>廣岡 明登 | 変革実装型プロジェクトリーダー — 複雑な課題を、現場が動く仕組みに変える</title>
+<meta name="description" content="廣岡明登（Akito Hirooka）— 複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。講演・研修・DX推進の伴走支援のご相談を受け付けています。">
+
+<!-- OGP -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://akitoh.github.io/">
+<meta property="og:title" content="廣岡 明登 | 変革実装型プロジェクトリーダー">
+<meta property="og:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場に定着するまで完遂する。講演・研修・伴走支援。">
+<meta property="og:site_name" content="Akito Hirooka">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="廣岡 明登 | 変革実装型プロジェクトリーダー">
+<meta name="twitter:description" content="複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みへ翻訳して、現場定着まで完遂する。">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   Design tokens — 静謐で知的なダークトーン
+   ============================================================ */
+:root{
+  --bg:        #0b1120;   /* ディープネイビー */
+  --bg-2:      #0e1628;
+  --bg-3:      #121b30;
+  --panel:     #101a2e;
+  --line:      rgba(196,169,98,.22);
+  --line-soft: rgba(255,255,255,.08);
+  --ink:       #e9e7df;   /* 象牙色の本文 */
+  --ink-soft:  #b7bdc9;
+  --muted:     #8e97a8;
+  --gold:      #c4a962;   /* くすんだゴールド */
+  --gold-soft: #d9c58c;
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans:  "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  --max: 1120px;
+}
+
+*{ margin:0; padding:0; box-sizing:border-box; }
+
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+
+body{
+  font-family:var(--sans);
+  font-weight:400;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.9;
+  letter-spacing:.02em;
+  font-feature-settings:"palt";
+  -webkit-font-smoothing:antialiased;
+}
+
+::selection{ background:rgba(196,169,98,.28); }
+
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+
+/* skip link */
+.skip-link{
+  position:absolute; left:-999px; top:0; z-index:200;
+  background:var(--gold); color:#0b1120; padding:.6em 1.2em; font-weight:500;
+}
+.skip-link:focus{ left:12px; top:12px; }
+
+/* ============================================================
+   共通レイアウト
+   ============================================================ */
+.wrap{ max-width:var(--max); margin:0 auto; padding:0 clamp(20px,5vw,48px); }
+
+section{ padding:clamp(84px,12vw,150px) 0; position:relative; }
+
+.eyebrow{
+  font-family:var(--serif);
+  font-size:clamp(.82rem,1.3vw,.95rem);
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex; align-items:center; gap:1.1em;
+  margin-bottom:1.6em;
+}
+.eyebrow::before{
+  content:""; display:block; width:2.6em; height:1px; background:var(--gold);
+  opacity:.8; flex:none;
+}
+
+.sec-title{
+  font-size:clamp(1.55rem,3.4vw,2.3rem);
+  font-weight:500;
+  letter-spacing:.08em;
+  line-height:1.6;
+  margin-bottom:.6em;
+}
+.sec-lead{
+  color:var(--ink-soft);
+  max-width:38em;
+  font-size:clamp(.92rem,1.5vw,1rem);
+}
+
+/* scroll reveal */
+.reveal{ opacity:0; transform:translateY(22px); transition:opacity .9s cubic-bezier(.22,.61,.36,1), transform .9s cubic-bezier(.22,.61,.36,1); }
+.reveal.is-in{ opacity:1; transform:none; }
+@media (prefers-reduced-motion: reduce){
+  .reveal{ opacity:1; transform:none; }
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.site-header{
+  position:fixed; inset:0 0 auto 0; z-index:100;
+  transition:background .4s ease, box-shadow .4s ease;
+}
+.site-header.is-scrolled{
+  background:rgba(11,17,32,.86);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--line-soft);
+}
+.header-inner{
+  max-width:var(--max); margin:0 auto;
+  padding:20px clamp(20px,5vw,48px);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.brand{
+  display:flex; align-items:baseline; gap:.9em;
+}
+.brand .mono{
+  font-family:var(--serif); font-weight:500;
+  font-size:1.35rem; letter-spacing:.14em; color:var(--gold);
+}
+.brand .name{
+  font-size:.86rem; letter-spacing:.24em; color:var(--ink-soft); font-weight:400;
+}
+.site-nav ul{ display:flex; gap:clamp(1.2em,3vw,2.4em); }
+.site-nav a{
+  font-size:.8rem; letter-spacing:.18em; color:var(--ink-soft);
+  padding:.4em 0; position:relative; transition:color .3s;
+}
+.site-nav a::after{
+  content:""; position:absolute; left:0; bottom:0; width:100%; height:1px;
+  background:var(--gold); transform:scaleX(0); transform-origin:right;
+  transition:transform .35s cubic-bezier(.22,.61,.36,1);
+}
+.site-nav a:hover, .site-nav a:focus-visible{ color:var(--gold-soft); }
+.site-nav a:hover::after, .site-nav a:focus-visible::after{ transform:scaleX(1); transform-origin:left; }
+@media (max-width:760px){
+  .site-nav{ display:none; }
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero{
+  min-height:100svh;
+  display:flex; align-items:center;
+  padding:clamp(140px,18vh,200px) 0 clamp(90px,12vh,140px);
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute; inset:0; pointer-events:none; z-index:0;
+}
+.hero-bg svg{ position:absolute; inset:0; width:100%; height:100%; }
+/* WebGL層：既存SVGの発光の上に、粒子と同心円リングを重ねる（フォールバック時は非表示のまま） */
+.hero-webgl{
+  position:absolute; inset:0; width:100%; height:100%; display:block;
+  opacity:0; transition:opacity 1.6s ease;
+}
+.hero-webgl.is-ready{ opacity:1; }
+.hero .wrap{ position:relative; z-index:1; }
+
+.hero-kicker{
+  font-family:var(--serif);
+  letter-spacing:.4em; text-transform:uppercase;
+  font-size:clamp(.78rem,1.4vw,.92rem);
+  color:var(--gold);
+  margin-bottom:2.2em;
+  display:flex; align-items:center; gap:1.2em;
+}
+.hero-kicker::before{ content:""; width:3em; height:1px; background:var(--gold); flex:none; }
+
+.hero-name-ja{
+  font-size:clamp(2.3rem,6.5vw,4.2rem);
+  font-weight:500; letter-spacing:.14em; line-height:1.35;
+}
+.hero-name-en{
+  font-family:var(--serif); font-style:italic; font-weight:400;
+  font-size:clamp(1rem,2.2vw,1.35rem);
+  letter-spacing:.22em; color:var(--muted);
+  margin:.5em 0 2em;
+}
+.hero-role{
+  display:inline-block;
+  font-size:clamp(.82rem,1.5vw,.95rem);
+  letter-spacing:.2em; color:var(--gold-soft);
+  border:1px solid var(--line);
+  padding:.55em 1.5em; border-radius:999px;
+  margin-bottom:2.6em;
+}
+.hero-statement{
+  font-size:clamp(1.06rem,2.4vw,1.5rem);
+  font-weight:400; line-height:2.15;
+  letter-spacing:.06em;
+  max-width:32em;
+  margin-bottom:3em;
+}
+.hero-statement em{
+  font-style:normal; color:var(--gold-soft);
+}
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:1em; }
+.btn{
+  display:inline-flex; align-items:center; gap:.8em;
+  font-size:.88rem; letter-spacing:.14em; font-weight:500;
+  padding:1em 2.2em;
+  border:1px solid var(--gold);
+  border-radius:2px;
+  transition:background .35s, color .35s, box-shadow .35s, transform .35s;
+}
+.btn .arrow{ font-family:var(--serif); transition:transform .35s; }
+.btn:hover .arrow, .btn:focus-visible .arrow{ transform:translateX(4px); }
+.btn-solid{
+  background:var(--gold); color:#101626;
+}
+.btn-solid:hover, .btn-solid:focus-visible{
+  background:var(--gold-soft);
+  box-shadow:0 6px 28px rgba(196,169,98,.25);
+}
+.btn-ghost{ color:var(--gold-soft); background:transparent; }
+.btn-ghost:hover, .btn-ghost:focus-visible{
+  background:rgba(196,169,98,.1);
+  box-shadow:0 6px 28px rgba(196,169,98,.12);
+}
+.btn small{ display:block; font-size:.72em; letter-spacing:.1em; opacity:.75; font-weight:400; }
+.btn .btn-label{ display:flex; flex-direction:column; line-height:1.5; text-align:left; }
+
+.hero-tags{
+  margin-top:4em;
+  display:flex; flex-wrap:wrap; gap:.6em 1.8em;
+  font-size:.74rem; letter-spacing:.16em; color:var(--muted);
+}
+.hero-tags li::before{ content:"— "; color:var(--gold); opacity:.7; }
+
+/* ============================================================
+   提供価値
+   ============================================================ */
+.value{ background:var(--bg-2); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+.value-grid{
+  margin-top:clamp(48px,7vw,76px);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:1px;
+  background:var(--line-soft);
+  border:1px solid var(--line-soft);
+}
+.value-card{
+  background:var(--bg-2);
+  padding:clamp(34px,4.5vw,52px) clamp(26px,3.5vw,42px);
+  position:relative;
+  transition:background .45s;
+}
+.value-card:hover{ background:var(--bg-3); }
+.value-card .num{
+  font-family:var(--serif); font-size:.95rem; letter-spacing:.3em;
+  color:var(--gold); display:block; margin-bottom:1.6em;
+}
+.value-card h3{
+  font-size:1.08rem; font-weight:500; letter-spacing:.1em;
+  margin-bottom:1em; line-height:1.7;
+}
+.value-card p{
+  font-size:.88rem; color:var(--ink-soft); line-height:2;
+}
+.value-card::after{
+  content:""; position:absolute; left:0; top:0; width:100%; height:2px;
+  background:linear-gradient(90deg, var(--gold), transparent 70%);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform .5s cubic-bezier(.22,.61,.36,1);
+}
+.value-card:hover::after{ transform:scaleX(1); }
+
+/* ============================================================
+   2つの依頼導線
+   ============================================================ */
+.paths-grid{
+  margin-top:clamp(48px,7vw,76px);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:clamp(20px,3vw,32px);
+}
+.path-card{
+  border:1px solid var(--line);
+  background:linear-gradient(160deg, var(--panel) 0%, var(--bg) 100%);
+  padding:clamp(38px,5vw,60px) clamp(28px,4vw,52px);
+  display:flex; flex-direction:column;
+  transition:border-color .4s, box-shadow .4s, transform .4s;
+}
+.path-card:hover{
+  border-color:rgba(196,169,98,.5);
+  box-shadow:0 18px 50px rgba(0,0,0,.4);
+  transform:translateY(-3px);
+}
+.path-card .path-kicker{
+  font-family:var(--serif); letter-spacing:.34em; text-transform:uppercase;
+  font-size:.78rem; color:var(--gold); margin-bottom:1.8em;
+}
+.path-card h3{
+  font-size:clamp(1.15rem,2.2vw,1.4rem); font-weight:500; letter-spacing:.1em;
+  line-height:1.7; margin-bottom:.9em;
+}
+.path-card .path-sub{
+  font-size:.86rem; color:var(--muted); letter-spacing:.08em; margin-bottom:1.8em;
+}
+.path-card ul{
+  margin-bottom:2.4em; flex:1;
+}
+.path-card ul li{
+  font-size:.9rem; color:var(--ink-soft);
+  padding:.55em 0; border-bottom:1px dashed var(--line-soft);
+  display:flex; gap:.9em;
+}
+.path-card ul li::before{
+  content:"◆"; font-size:.5em; color:var(--gold);
+  align-self:center; flex:none;
+}
+.path-card .path-desc{ font-size:.9rem; color:var(--ink-soft); line-height:2; margin-top:.2em; }
+.path-card .btn{ align-self:flex-start; }
+.paths-foot{
+  margin-top:clamp(36px,5vw,56px);
+  text-align:center;
+}
+.paths-foot p{
+  color:var(--ink-soft); font-size:clamp(.92rem,1.5vw,1rem);
+  max-width:40em; margin:0 auto 1.8em;
+}
+
+/* ============================================================
+   代表実績
+   ============================================================ */
+.works{ background:var(--bg-2); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+.works-list{ margin-top:clamp(48px,7vw,72px); border-top:1px solid var(--line-soft); }
+.work-item{
+  border-bottom:1px solid var(--line-soft);
+  padding:clamp(30px,4vw,44px) 0;
+  display:grid;
+  grid-template-columns:minmax(0,.42fr) minmax(0,1fr);
+  gap:clamp(16px,3vw,48px);
+  transition:padding-left .4s cubic-bezier(.22,.61,.36,1);
+}
+@media (min-width:761px){
+  .work-item:hover{ padding-left:14px; }
+}
+@media (max-width:760px){
+  .work-item{ grid-template-columns:1fr; gap:10px; }
+}
+.work-item h3{
+  font-size:1.02rem; font-weight:500; letter-spacing:.08em; line-height:1.8;
+}
+.work-item .work-role{
+  display:block; font-size:.76rem; color:var(--gold); letter-spacing:.16em; margin-top:.7em;
+}
+.work-item p{
+  font-size:.9rem; color:var(--ink-soft); line-height:2;
+}
+
+/* ============================================================
+   About / 経歴
+   ============================================================ */
+.about-grid{
+  margin-top:clamp(48px,7vw,72px);
+  display:grid;
+  grid-template-columns:minmax(0,.9fr) minmax(0,1.4fr);
+  gap:clamp(40px,6vw,80px);
+  align-items:start;
+}
+@media (max-width:860px){
+  .about-grid{ grid-template-columns:1fr; }
+}
+
+/* モノグラム・ポートレート（写真差し替え前提） */
+.portrait{
+  aspect-ratio:4/5;
+  max-width:360px;
+  border:1px solid var(--line);
+  position:relative;
+  display:flex; align-items:center; justify-content:center;
+  background:
+    radial-gradient(120% 90% at 20% 10%, rgba(196,169,98,.12) 0%, transparent 55%),
+    linear-gradient(165deg, #14203a 0%, #0b1120 80%);
+  overflow:hidden;
+}
+.portrait::before{
+  content:""; position:absolute; inset:14px;
+  border:1px solid rgba(196,169,98,.28);
+  pointer-events:none;
+}
+.portrait svg{ width:60%; height:auto; }
+.portrait img{
+  width:100%; height:100%;
+  object-fit:cover;
+  object-position:center top;
+}
+.portrait-caption{
+  margin-top:1.2em; font-size:.74rem; letter-spacing:.2em; color:var(--muted);
+}
+
+.about-body p{
+  font-size:.95rem; color:var(--ink-soft); line-height:2.15; margin-bottom:1.8em;
+}
+.about-body .about-axis{
+  border-left:2px solid var(--gold);
+  padding:.4em 0 .4em 1.4em;
+  color:var(--ink);
+  font-size:.95rem;
+  margin-bottom:3em;
+}
+
+/* timeline */
+.timeline-title{
+  font-family:var(--serif); letter-spacing:.34em; text-transform:uppercase;
+  font-size:.8rem; color:var(--gold); margin-bottom:1.8em;
+}
+.timeline{ position:relative; padding-left:1.6em; }
+.timeline::before{
+  content:""; position:absolute; left:.3em; top:.5em; bottom:.5em;
+  width:1px; background:linear-gradient(180deg, var(--gold), rgba(196,169,98,.1));
+}
+.timeline li{
+  position:relative; padding:.5em 0 .5em .8em;
+  font-size:.9rem; color:var(--ink-soft); letter-spacing:.05em;
+}
+.timeline li::before{
+  content:""; position:absolute; left:-1.42em; top:1.15em;
+  width:7px; height:7px; border-radius:50%;
+  background:var(--bg); border:1px solid var(--gold);
+}
+.timeline li strong{ color:var(--ink); font-weight:500; }
+
+/* ============================================================
+   Contact
+   ============================================================ */
+.contact{
+  background:
+    radial-gradient(90% 120% at 50% 120%, rgba(196,169,98,.1) 0%, transparent 55%),
+    var(--bg-2);
+  border-top:1px solid var(--line-soft);
+  text-align:center;
+}
+.contact .eyebrow{ justify-content:center; }
+.contact .eyebrow::after{
+  content:""; display:block; width:2.6em; height:1px; background:var(--gold); opacity:.8; flex:none;
+}
+.contact .sec-lead{ margin:0 auto 3.5em; }
+.contact-grid{
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:clamp(20px,3vw,32px);
+  max-width:560px; margin:0 auto;
+  text-align:left;
+}
+.contact-card{
+  border:1px solid var(--line);
+  background:var(--panel);
+  padding:clamp(32px,4vw,44px);
+  transition:border-color .4s, box-shadow .4s;
+}
+.contact-card:hover{
+  border-color:rgba(196,169,98,.5);
+  box-shadow:0 16px 44px rgba(0,0,0,.35);
+}
+.contact-card h3{
+  font-size:1.05rem; font-weight:500; letter-spacing:.12em; margin-bottom:.6em;
+}
+.contact-card p{
+  font-size:.85rem; color:var(--muted); line-height:1.9; margin-bottom:1.8em;
+}
+.contact-note{
+  margin-top:3em;
+  font-size:.76rem; letter-spacing:.12em; color:var(--muted);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer{
+  padding:clamp(56px,8vw,90px) 0 40px;
+  border-top:1px solid var(--line-soft);
+}
+.footer-en{
+  font-family:var(--serif); font-style:italic;
+  font-size:clamp(.95rem,1.8vw,1.15rem);
+  letter-spacing:.06em; color:var(--muted);
+  max-width:40em; line-height:1.9;
+  margin-bottom:3em;
+}
+.footer-row{
+  display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:1em;
+  font-size:.74rem; letter-spacing:.18em; color:var(--muted);
+}
+.footer-row .mono{ font-family:var(--serif); color:var(--gold); letter-spacing:.2em; }
+
+/* ============================================================
+   Floating action button — トップへ戻る
+   ============================================================ */
+.fab-top{
+  position:fixed; right:clamp(16px,3vw,32px); bottom:clamp(16px,3vw,32px);
+  z-index:120;
+  width:52px; height:52px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(16,26,46,.72);
+  color:var(--gold-soft);
+  border:1px solid var(--line);
+  backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+  cursor:pointer;
+  opacity:0; visibility:hidden; transform:translateY(12px);
+  transition:opacity .4s ease, transform .4s ease, visibility .4s, background .3s, border-color .3s, box-shadow .3s;
+}
+.fab-top.is-visible{ opacity:1; visibility:visible; transform:none; }
+.fab-top:hover, .fab-top:focus-visible{
+  background:var(--gold); color:#101626; border-color:var(--gold);
+  box-shadow:0 8px 28px rgba(196,169,98,.28);
+}
+.fab-top svg{ width:20px; height:20px; display:block; transition:transform .3s; }
+.fab-top:hover svg, .fab-top:focus-visible svg{ transform:translateY(-2px); }
+@media (prefers-reduced-motion: reduce){
+  .fab-top{ transition:opacity .01ms, visibility .01ms; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">本文へスキップ</a>
+
+<!-- ============ Header ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="トップへ戻る">
+      <span class="mono" aria-hidden="true">A.H</span>
+      <span class="name">廣岡 明登</span>
+    </a>
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+      <ul>
+        <li><a href="#value">提供価値</a></li>
+        <li><a href="#paths">ご依頼</a></li>
+        <li><a href="#works">領域</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============ Hero ============ -->
+<section class="hero" id="top" aria-label="紹介">
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" role="presentation" focusable="false">
+      <defs>
+        <radialGradient id="glow" cx="78%" cy="18%" r="70%">
+          <stop offset="0%" stop-color="#1c2a4a"/>
+          <stop offset="55%" stop-color="#0e1628"/>
+          <stop offset="100%" stop-color="#0b1120"/>
+        </radialGradient>
+        <linearGradient id="goldline" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#c4a962" stop-opacity=".55"/>
+          <stop offset="100%" stop-color="#c4a962" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#glow)"/>
+      <!-- 構造化を象徴する幾何学：交差する細線と同心円 -->
+      <g stroke="url(#goldline)" fill="none" stroke-width="1">
+        <circle cx="1120" cy="180" r="220"/>
+        <circle cx="1120" cy="180" r="340"/>
+        <circle cx="1120" cy="180" r="470"/>
+        <line x1="0" y1="760" x2="1440" y2="300"/>
+        <line x1="0" y1="860" x2="1440" y2="430"/>
+      </g>
+      <g fill="#c4a962">
+        <circle cx="1120" cy="180" r="3" opacity=".9"/>
+        <circle cx="905" cy="245" r="2.2" opacity=".55"/>
+        <circle cx="1288" cy="415" r="2.2" opacity=".5"/>
+        <circle cx="612" cy="565" r="2" opacity=".4"/>
+      </g>
+    </svg>
+    <!-- WebGL背景（Three.js）：対応環境かつモーション許可時のみ、上のSVGに重ねて生成描画。非対応/低速/reduced-motion時はSVGのまま。 -->
+    <canvas class="hero-webgl" aria-hidden="true"></canvas>
+  </div>
+
+  <div class="wrap">
+    <p class="hero-kicker">Akito Hirooka — Personal Site</p>
+    <h1>
+      <span class="hero-name-ja">廣岡 明登</span>
+      <span class="hero-name-en" aria-hidden="true">Akito Hirooka</span>
+    </h1>
+    <p class="hero-role">変革実装型プロジェクトリーダー／DXリーダー</p>
+    <p class="hero-statement reveal">
+      複雑な制度・技術・組織の課題を<em>構造化</em>し、<br>
+      関係者が動ける<em>「言葉」と「仕組み」</em>に翻訳する。<br>
+      そして、現場に<em>定着</em>するまで、完遂する。
+    </p>
+    <div class="cta-row reveal">
+      <a class="btn btn-solid" href="#contact">
+        <span class="btn-label">まず30分、課題をお聞かせください<small>講演・研修・伴走支援、いずれのご相談もこちらから</small></span>
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+    <ul class="hero-tags reveal" aria-label="専門領域">
+      <li>変革実装</li>
+      <li>DX推進</li>
+      <li>生成AI活用</li>
+      <li>チェンジマネジメント</li>
+      <li>ファシリテーション</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 提供価値 ============ -->
+<section class="value" id="value" aria-labelledby="value-title">
+  <div class="wrap">
+    <p class="eyebrow">Value</p>
+    <h2 class="sec-title" id="value-title">できること — 5つの提供価値</h2>
+    <p class="sec-lead">肩書よりも、何を引き受けられるか。私が提供するのは知識ではなく、「変化が現場に根づくまでの全工程」です。</p>
+
+    <div class="value-grid">
+      <article class="value-card reveal">
+        <span class="num" aria-hidden="true">01</span>
+        <h3>複雑性の整理</h3>
+        <p>制度・技術・利害が絡み合った課題を構造化し、「何が問題で、どの順に解くべきか」を関係者全員が同じ地図で見られる状態にします。</p>
+      </article>
+      <article class="value-card reveal">
+        <span class="num" aria-hidden="true">02</span>
+        <h3>技術と業務の翻訳</h3>
+        <p>技術者の言葉を経営と現場の言葉に、現場の暗黙知を仕様の言葉に。立場の違う人々が同じテーブルで意思決定できる「共通言語」をつくります。</p>
+      </article>
+      <article class="value-card reveal">
+        <span class="num" aria-hidden="true">03</span>
+        <h3>変化の実装</h3>
+        <p>ツール選定から導入、運用設計、定着まで一気通貫。「導入して終わり」を許さず、計画が現実に動くところまで責任を持ちます。</p>
+      </article>
+      <article class="value-card reveal">
+        <span class="num" aria-hidden="true">04</span>
+        <h3>人の行動変容</h3>
+        <p>新しい仕組みは、使われてはじめて意味を持ちます。研修で終わらせず、日々の業務の中で「使うことが習慣になる」状態まで設計します。</p>
+      </article>
+      <article class="value-card reveal">
+        <span class="num" aria-hidden="true">05</span>
+        <h3>新技術の業務価値化</h3>
+        <p>生成AIをはじめとする新技術を、話題ではなく業務価値に。実務適合性・コスト・ガバナンスの3つの視点で、組織にとっての「使いどころ」を見極めます。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2つの依頼導線 ============ -->
+<section id="paths" aria-labelledby="paths-title">
+  <div class="wrap">
+    <p class="eyebrow">Engagement</p>
+    <h2 class="sec-title" id="paths-title">依頼のかたち — 3つの入口、1つの窓口</h2>
+    <p class="sec-lead">ご依頼の入口は3つ。どれも私個人が直接お受けし、直接お応えします。「どれに当たるかわからない」段階のご相談こそ、歓迎します。</p>
+
+    <div class="paths-grid">
+      <article class="path-card reveal">
+        <p class="path-kicker">Speaking</p>
+        <h3>講演・登壇</h3>
+        <p class="path-sub">考え方を、持ち帰れるかたちで。</p>
+        <p class="path-desc">生成AIとDX、変革の実装、チェンジマネジメント。数十名から数百名規模まで、「聞いて終わり」ではなく翌日から視点が変わる講演を設計します。単発の講演から、連続セミナーの企画まで。</p>
+      </article>
+
+      <article class="path-card reveal">
+        <p class="path-kicker">Training</p>
+        <h3>研修・ワークショップ</h3>
+        <p class="path-sub">手が動く場を、業務に接続する。</p>
+        <p class="path-desc">ハンズオン形式の研修・ワークショップを、貴組織の実業務・実データに引きつけて設計します。汎用カリキュラムの持ち込みではなく、「自分の仕事がこう変わる」と体感できる場を。</p>
+      </article>
+
+      <article class="path-card reveal">
+        <p class="path-kicker">Advisory</p>
+        <h3>アドバイザリー・伴走支援</h3>
+        <p class="path-sub">意思決定の隣に、立つ。</p>
+        <p class="path-desc">DX・変革プロジェクトの構想壁打ちから、ツール選定・経営判断の支援、導入・定着の推進まで。月次の顧問形式から、プロジェクト単位の深い伴走まで、関わり方は課題に合わせて設計します。</p>
+      </article>
+    </div>
+
+    <div class="paths-foot reveal">
+      <p>いずれの場合も、まずは30分の相談から。課題を伺ったうえで、最適な関わり方をご提案します。</p>
+      <a class="btn btn-solid" href="#contact">
+        まず30分、課題をお聞かせください
+        <span class="arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 代表実績 ============ -->
+<section class="works" id="works" aria-labelledby="works-title">
+  <div class="wrap">
+    <p class="eyebrow">Fields of Work</p>
+    <h2 class="sec-title" id="works-title">手がけてきた領域</h2>
+    <p class="sec-lead">個別の名前は挙げません。代わりに、どんな複雑さを、どんな役割で引き受けてきたかを記します。</p>
+
+    <div class="works-list">
+      <article class="work-item reveal">
+        <div>
+          <h3>公共領域 × 生成AI ｜ 実証事業の統括</h3>
+          <span class="work-role">事業統括</span>
+        </div>
+        <p>自治体・公共領域における生成AI活用実証を、事業統括として推進。研修で終わらせず、ワークショップ、実案件への伴走、効果評価、業務の標準化、次年度への展開設計まで、一つの事業として接続しました。</p>
+      </article>
+
+      <article class="work-item reveal">
+        <div>
+          <h3>公共サービス × 業務設計 ｜ IT/SaaS・業務フローの再構築</h3>
+          <span class="work-role">業務フロー設計</span>
+        </div>
+        <p>公共サービスの予約・問い合わせ・アクセス解析といった分断されがちな仕組みを、利用者の導線と現場の運用の両面から統合。「作って終わり」でない運用設計まで担いました。</p>
+      </article>
+
+      <article class="work-item reveal">
+        <div>
+          <h3>全社IT × 経営判断 ｜ 大規模ツール移行の推進</h3>
+          <span class="work-role">移行推進</span>
+        </div>
+        <p>全社規模のコミュニケーション基盤の移行を、代替候補の選定・比較から経営層の意思決定支援、移行の実行推進まで担当。数百名規模の業務を止めずに移す設計を行いました。</p>
+      </article>
+
+      <article class="work-item reveal">
+        <div>
+          <h3>業務ツール × 行動定着 ｜ 社内活用推進のリード</h3>
+          <span class="work-role">活用推進リード</span>
+        </div>
+        <p>Microsoft 365 / Copilot の社内活用推進を、公式の推進役として牽引。機能の紹介ではなく、部門ごとのユースケース発見と行動定着に焦点を置き、「入っているのに使われない」を解消する型をつくりました。</p>
+      </article>
+
+      <article class="work-item reveal">
+        <div>
+          <h3>教育・登壇 ｜ 累計1,000名以上への動機付け</h3>
+          <span class="work-role">企画・登壇</span>
+        </div>
+        <p>生成AI・Microsoft 365・セキュリティ等をテーマに、勉強会・ハンズオンを企画から実施まで一貫して担当。100〜300名規模の登壇を複数回含め、累計1,000名以上の「最初の一歩」に関わってきました。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ About / 経歴 ============ -->
+<section id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <p class="eyebrow">About</p>
+    <h2 class="sec-title" id="about-title">廣岡 明登について</h2>
+    <p class="sec-lead">技術と経営、制度と現場、構想と定着。そのあいだに立つ仕事をしています。</p>
+
+    <div class="about-grid">
+      <div class="reveal">
+        <!-- ▼▼▼ 顔写真プレースホルダー：実写真が用意でき次第、下の figure 内の SVG を img[src] に差し替え（例 alt="廣岡明登の写真"） ▼▼▼ -->
+        <figure>
+          <div class="portrait">
+            <img src="assets/images/akito-hirooka-portrait.png" alt="廣岡明登のポートレート" width="1003" height="1568" loading="lazy" decoding="async">
+          </div>
+          <figcaption class="portrait-caption">AKITO HIROOKA</figcaption>
+        </figure>
+        <!-- ▲▲▲ 顔写真プレースホルダーここまで ▲▲▲ -->
+      </div>
+
+      <div class="about-body">
+        <p class="reveal">
+          キャリアの出発点は、金融の営業でした。そこからネットワークエンジニアとして約5年、技術の現場に立ち、大規模プロジェクトのリーダーとして「計画と現実のずれ」を埋める仕事を覚えました。
+        </p>
+        <p class="reveal">
+          その後、人材ビジネスの営業、組織開発とチェンジマネジメント、地域課題に向き合う公共事業のプロジェクトマネジメント、デジタルマーケティング、そして Microsoft 365 と生成AIの導入・活用推進へ。一見ばらばらに見える経歴ですが、やってきたことは一つです。
+        </p>
+        <p class="about-axis reveal">
+          複雑なものを理解し、人に説明できるかたちにし、関係者を巻き込み、現実に動く仕組みに変える。
+        </p>
+        <p class="reveal">
+          技術と経営、制度と現場、構想と定着。そのあいだに立って両方の言葉を話せることが、私の仕事の核だと考えています。
+        </p>
+
+        <div class="reveal">
+          <h3 class="timeline-title">Career Path</h3>
+          <ol class="timeline">
+            <li><strong>キャリア初期</strong> — 証券営業。数字と信頼の両方で成果をつくる基礎を学ぶ</li>
+            <li><strong>技術者時代（約5年）</strong> — ネットワークエンジニア。インフラの設計・構築・運用の現場に立つ</li>
+            <li><strong>PMへの転換</strong> — 大規模プロジェクトのプロジェクトリーダー。技術と計画の両輪を担う</li>
+            <li><strong>人と組織へ</strong> — 人材サービスの営業を経て、組織開発・チェンジマネジメントに従事</li>
+            <li><strong>公共領域へ</strong> — 地方創生・公共事業のプロジェクトマネジメント。制度と現場の翻訳を担う</li>
+            <li><strong>デジタル領域の拡張</strong> — デジタルマーケティング、Microsoft 365 の導入・活用推進</li>
+            <li><strong>現在</strong> — 生成AIの導入・活用推進、研修・登壇・ファシリテーション。変革の実装を専門に</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Contact ============ -->
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h2 class="sec-title" id="contact-title">お問い合わせ</h2>
+    <p class="sec-lead">窓口は一つです。講演のご依頼も、研修のご相談も、「まだ整理できていない課題の壁打ち」も、すべてここから。</p>
+
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <h3>初回相談（30分）</h3>
+        <p>課題の整理がついていない段階で構いません。お話を伺ったうえで、講演・研修・伴走支援のいずれが最適か、率直にお答えします。お引き受けできない場合も、その理由と代替の考え方をお伝えします。</p>
+        <a class="btn btn-solid" href="https://outlook.office.com/book/Bookings2305222@adecco.com/?ismsaljsauthenabled" target="_blank" rel="noopener noreferrer">
+          空き枠を見て予約する
+          <span class="arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    <p class="contact-note">※ 予約ページ（Microsoft Bookings）が新しいタブで開きます。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ Footer ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-en">
+      Transformation-oriented project leader — turning complex technology, business, and organizational challenges into actionable strategies and sustainable operating models.
+    </p>
+    <div class="footer-row">
+      <span class="mono">A.H — AKITO HIROOKA</span>
+      <span>&copy; 2026 Akito Hirooka. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- トップへ戻る FAB -->
+<button type="button" class="fab-top" id="fabTop" aria-label="ページ上部へ戻る">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"/><path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ヘッダー：スクロールで背景を付与 ／ FABの表示制御 */
+  var header = document.getElementById("siteHeader");
+  var fab = document.getElementById("fabTop");
+  var onScroll = function(){
+    var y = window.scrollY;
+    header.classList.toggle("is-scrolled", y > 24);
+    if (fab) fab.classList.toggle("is-visible", y > 480);
+  };
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+
+  /* トップへ戻る（reduced-motion時は即時ジャンプ） */
+  if (fab){
+    fab.addEventListener("click", function(){
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top:0, behavior: reduced ? "auto" : "smooth" });
+    });
+  }
+
+  /* スクロール連動フェードイン（reduced-motion時は即時表示） */
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var targets = document.querySelectorAll(".reveal");
+  if (reduced || !("IntersectionObserver" in window)){
+    targets.forEach(function(el){ el.classList.add("is-in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add("is-in");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.12, rootMargin:"0px 0px -6% 0px" });
+    targets.forEach(function(el){ io.observe(el); });
+  }
+})();
+</script>
+
+<!-- ============ Hero WebGL（Three.js・段階的強化 / progressive enhancement） ============ -->
+<script>
+(function(){
+  "use strict";
+  var canvas = document.querySelector(".hero-webgl");
+  if (!canvas) return;
+
+  /* 動きを好まないユーザーには何も読み込まない（SVGのまま） */
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  /* WebGL非対応環境も同様にSVGフォールバック */
+  var webglOK = (function(){
+    try {
+      var c = document.createElement("canvas");
+      return !!(window.WebGLRenderingContext &&
+        (c.getContext("webgl") || c.getContext("experimental-webgl")));
+    } catch (e) { return false; }
+  })();
+  if (!webglOK) return;
+
+  /* 対応環境のみ、ここで初めて Three.js 本体（同梱）を遅延読み込み */
+  var s = document.createElement("script");
+  s.src = "assets/three.min.js";
+  s.async = true;
+  s.onload = init;
+  s.onerror = function(){ /* 読み込み失敗時はSVGのまま。何もしない */ };
+  document.head.appendChild(s);
+
+  function init(){
+    if (!window.THREE) return;
+    var THREE = window.THREE;
+    var hero = canvas.closest(".hero");
+    var W = canvas.clientWidth, H = canvas.clientHeight;
+    if (!W || !H) return;
+
+    var isMobile = Math.min(window.innerWidth, window.innerHeight) < 620;
+
+    var renderer = new THREE.WebGLRenderer({
+      canvas: canvas, alpha: true, antialias: !isMobile, powerPreference: "low-power"
+    });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.5 : 2));
+    renderer.setSize(W, H, false);
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 100);
+    camera.position.z = 14;
+
+    var group = new THREE.Group();
+    scene.add(group);
+
+    /* 粒子：奥行きのある金色の点群（構造化された空間を象徴） */
+    var COUNT = isMobile ? 240 : 520;
+    var pos = new Float32Array(COUNT * 3);
+    for (var i = 0; i < COUNT; i++){
+      pos[i*3]   = (Math.random() - 0.5) * 34;
+      pos[i*3+1] = (Math.random() - 0.5) * 22;
+      pos[i*3+2] = (Math.random() - 0.5) * 18;
+    }
+    var pgeo = new THREE.BufferGeometry();
+    pgeo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    var pmat = new THREE.PointsMaterial({
+      color: 0xc4a962, size: isMobile ? 0.11 : 0.09,
+      transparent: true, opacity: 0.8, sizeAttenuation: true,
+      blending: THREE.AdditiveBlending, depthWrite: false
+    });
+    group.add(new THREE.Points(pgeo, pmat));
+
+    /* 同心円リング：ヒーローSVGのモチーフを立体化し右上へ配置 */
+    var rings = new THREE.Group();
+    rings.position.set(7, 4.5, -2);
+    [3.4, 5.1, 7.0].forEach(function(r, idx){
+      var g = new THREE.RingGeometry(r - 0.008, r + 0.008, 128);
+      var m = new THREE.MeshBasicMaterial({
+        color: 0xc4a962, transparent: true, opacity: 0.16 - idx * 0.035,
+        side: THREE.DoubleSide, blending: THREE.AdditiveBlending, depthWrite: false
+      });
+      rings.add(new THREE.Mesh(g, m));
+    });
+    group.add(rings);
+
+    /* ポインタ視差（繊細に） */
+    var tx = 0, ty = 0, cx = 0, cy = 0;
+    window.addEventListener("pointermove", function(e){
+      tx = (e.clientX / window.innerWidth)  - 0.5;
+      ty = (e.clientY / window.innerHeight) - 0.5;
+    }, { passive: true });
+
+    function resize(){
+      W = canvas.clientWidth; H = canvas.clientHeight;
+      if (!W || !H) return;
+      renderer.setSize(W, H, false);
+      camera.aspect = W / H; camera.updateProjectionMatrix();
+    }
+    window.addEventListener("resize", resize, { passive: true });
+
+    /* ヒーローが画面外なら描画停止（電力節約） */
+    var visible = true, raf = null;
+    function start(){ if (raf === null) raf = requestAnimationFrame(loop); }
+    function loop(ts){
+      if (!visible){ raf = null; return; }
+      raf = requestAnimationFrame(loop);
+      cx += (tx - cx) * 0.03; cy += (ty - cy) * 0.03;
+      var t = (ts || 0) * 0.0001;
+      group.rotation.y = t * 0.6 + cx * 0.5;
+      group.rotation.x = -cy * 0.3 + Math.sin(t * 0.7) * 0.04;
+      rings.rotation.z += 0.0006;
+      renderer.render(scene, camera);
+    }
+    if ("IntersectionObserver" in window){
+      new IntersectionObserver(function(en){
+        visible = en[0].isIntersecting;
+        if (visible) start();
+      }, { threshold: 0 }).observe(hero);
+    }
+
+    canvas.classList.add("is-ready");
+    start();
+  }
+})();
+</script>
+
+</body>
+</html>
