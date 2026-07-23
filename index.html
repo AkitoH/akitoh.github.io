@@ -654,14 +654,70 @@ body.nav-locked{ overflow:hidden; }
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "廣岡 明登",
-  "alternateName": "Akito Hirooka",
-  "url": "https://akitoh.github.io/",
-  "image": "https://akitoh.github.io/assets/images/akito-hirooka-portrait.jpg",
-  "jobTitle": "変革実装型プロジェクトリーダー／DXリーダー",
-  "description": "複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。",
-  "knowsAbout": ["DX推進", "生成AI活用", "Microsoft 365", "Copilot", "チェンジマネジメント", "プロジェクトマネジメント", "組織定着", "ファシリテーション"]
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://akitoh.github.io/#website",
+      "url": "https://akitoh.github.io/",
+      "name": "Akito Hirooka",
+      "inLanguage": "ja",
+      "publisher": { "@id": "https://akitoh.github.io/#person" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://akitoh.github.io/#profilepage",
+      "url": "https://akitoh.github.io/",
+      "name": "廣岡 明登 | 変革実装型プロジェクトリーダー",
+      "isPartOf": { "@id": "https://akitoh.github.io/#website" },
+      "about": { "@id": "https://akitoh.github.io/#person" },
+      "inLanguage": "ja",
+      "primaryImageOfPage": "https://akitoh.github.io/assets/images/og-image.jpg"
+    },
+    {
+      "@type": "Person",
+      "@id": "https://akitoh.github.io/#person",
+      "name": "廣岡 明登",
+      "alternateName": "Akito Hirooka",
+      "url": "https://akitoh.github.io/",
+      "mainEntityOfPage": { "@id": "https://akitoh.github.io/#profilepage" },
+      "image": "https://akitoh.github.io/assets/images/akito-hirooka-portrait.jpg",
+      "jobTitle": "変革実装型プロジェクトリーダー／DXリーダー",
+      "description": "複雑な制度・技術・組織課題を構造化し、関係者が動ける言葉と仕組みに翻訳して、現場定着まで完遂する変革実装型プロジェクトリーダー。",
+      "knowsLanguage": ["ja"],
+      "knowsAbout": ["DX推進", "生成AI活用", "Microsoft 365", "Copilot", "チェンジマネジメント", "プロジェクトマネジメント", "組織定着", "ファシリテーション"],
+      "areaServed": { "@type": "Country", "name": "日本" },
+      "sameAs": ["https://www.linkedin.com/in/akitoprof/"],
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "講演・登壇",
+            "serviceType": "講演・登壇",
+            "description": "生成AIとDX、変革の実装、チェンジマネジメントをテーマに、数十名から数百名規模まで、翌日から視点が変わる講演を設計。"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "研修・ワークショップ",
+            "serviceType": "研修・ワークショップ",
+            "description": "貴組織の実業務・実データに引きつけたハンズオン形式の研修・ワークショップを設計。"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "アドバイザリー・伴走支援",
+            "serviceType": "アドバイザリー・伴走支援",
+            "description": "DX・変革プロジェクトの構想壁打ちから、ツール選定・経営判断の支援、導入・定着の推進まで伴走。"
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 </head>
